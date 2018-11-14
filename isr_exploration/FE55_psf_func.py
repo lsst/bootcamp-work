@@ -55,3 +55,8 @@ def residuals_single(pars, pos, dn, errors):
     x0, y0, sigma, DN_tot, a, b, c = pars
     return (dn - psf_func_w_bkgd(pos, x0, y0, sigma, sigma, DN_tot, a, b, c))/errors
 
+def chisq(pos, dn, x0, y0, sigmax, sigmay, dn_fit, dn_errors):
+    "The chi-square of the fit of the data to psf_func."
+    return sum((psf_func(pos, x0, y0, sigmax, sigmay, dn_fit)
+                - np.array(dn))**2/dn_errors**2)
+
