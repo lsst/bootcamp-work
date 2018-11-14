@@ -37,8 +37,10 @@ def psf_func_w_bkgd(pos, x0, y0, sigmax, sigmay, DN_tot, a, b, c):
     DN_tot: Gaussian normalization in ADU
     background = a*x + b*y + c
     """
-    x1, x2 = pos[0] - 0.5, pos[0] + 0.5
-    y1, y2 = pos[1] - 0.5, pos[1] + 0.5
+    x1 = ((x[0] - 0.5) for x in pos)
+    x2 = x1 + 1
+    y1 = ((x[1] - 0.5) for x in pos)
+    y2 = y1 + 1
     aI = 0.5*a*(x2*x2-x1*x1)
     bI = 0.5*b*(y2*y2-y1*y1)
     cI = c
