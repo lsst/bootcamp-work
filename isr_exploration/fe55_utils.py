@@ -9,7 +9,7 @@ def fit_single_footprint(fp, **kwargs):
     # input arguments
     npars = kwargs.get('npars', 5)
     min_npix = kwargs.get('min_npix', 9)
-    max_npix = kwargs.get('max_npix', 100)
+    max_npix = kwargs.get('max_npix', 25)
     stdev = kwargs.get('stdev')
     sigma0 = kwargs.get('sigma0', 0.36)
     dn0 = kwargs.get('dn0', 1590./5.)
